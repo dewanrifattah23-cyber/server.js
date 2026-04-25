@@ -1,3 +1,20 @@
+/**
+ * ==========================================
+ * APLIKASI CBT PRO - SINGLE FILE NODE.JS (EXPRESS)
+ * ==========================================
+ * Panduan Deployment untuk Hostinger / GitHub:
+ * 1. Upload file ini ke GitHub Anda dengan nama `server.js`
+ * 2. Pastikan file `package.json` Anda memiliki dependency "express"
+ * 3. Di panel Hostinger, buat Aplikasi Node.js baru dan hubungkan ke GitHub Anda.
+ */
+
+const express = require('express');
+const app = express();
+
+// ==========================================
+// KODE FRONTEND (HTML, CSS, React UI)
+// ==========================================
+// Catatan: Seluruh kode tampilan (UI) yang mudah diedit ada di bawah ini.
 const htmlContent = `<!DOCTYPE html>
 <html lang="id">
 <head>
@@ -631,30 +648,26 @@ const htmlContent = `<!DOCTYPE html>
 // KODE BACKEND NODE.JS SERVER
 // ==========================================
 
-const server = http.createServer((req, res) => {
-    // 1. Route utama: Memuat HTML dan UI Frontend
-    if (req.url === '/' || req.url === '/index.html') {
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-        res.end(htmlContent);
-    } 
-    // 2. Route API Contoh: Jika nanti butuh koneksi MySQL/MongoDB Hostinger
-    else if (req.url === '/api/status') {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ 
-            status: "success", 
-            message: "Node.js Backend CBT berjalan sempurna!" 
-        }));
-    } 
-    // 3. Fallback Route
-    else {
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('404 Halaman Tidak Ditemukan');
-    }
+// Route untuk mengirim halaman web utama
+app.get('/', (req, res) => {
+    res.send(htmlContent);
+});
+
+app.get('/index.html', (req, res) => {
+    res.send(htmlContent);
+});
+
+// Route API Contoh
+app.get('/api/status', (req, res) => {
+    res.json({ 
+        status: "success", 
+        message: "Node.js Backend CBT berjalan sempurna dengan Express!" 
+    });
 });
 
 // Port otomatis yang diatur Hostinger, atau 3000 untuk komputer lokal
 const PORT = process.env.PORT || 3000;
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log("Server Aplikasi CBT berjalan pada port " + PORT);
 });
