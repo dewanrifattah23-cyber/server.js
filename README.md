@@ -1,13 +1,3 @@
-/**
- * ==========================================
- * APLIKASI CBT PRO - SINGLE FILE NODE.JS
- * ==========================================
- * Panduan Deployment untuk Hostinger / GitHub:
- * 1. Upload file ini ke GitHub Anda dengan nama `server.js`
- * 2. Di panel Hostinger, buat Aplikasi Node.js baru dan hubungkan ke GitHub Anda.
- * 3. File ini menggunakan modul bawaan Node.js (http), sehingga akan 
- * langsung berjalan tanpa perlu "npm install" library yang berat.
- */
 
 const http = require('http');
 
