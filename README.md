@@ -1,10 +1,3 @@
-
-const http = require('http');
-
-// ==========================================
-// KODE FRONTEND (HTML, CSS, React UI)
-// ==========================================
-// Catatan: Seluruh kode tampilan (UI) yang mudah diedit ada di bawah ini.
 const htmlContent = `<!DOCTYPE html>
 <html lang="id">
 <head>
